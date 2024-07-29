@@ -6,6 +6,8 @@ from numpy import ndarray
 from time import sleep
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 
+__all__ = "Robot",
+
 class Robot:
     FORWARD = 2
     BACKWARD = 1
