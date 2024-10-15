@@ -4,6 +4,7 @@ from .gamepad import Gamepad
 from .camera import Camera
 from numpy import ndarray
 from time import sleep
+
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 
 __all__ = "Robot",
@@ -40,7 +41,7 @@ class Robot:
     def init_camera(self, mode: "0, 1, 2, 3, 4, 5", width: Optional[int] = None, height: Optional[int] = None, black_and_white: bool = False) -> Camera:
         f"""{Camera.__init__.__doc__}"""
         if self._camera is None:
-            self._camera = Camera(mode, width, height)
+            self._camera = Camera(mode, width, height, black_and_white = black_and_white)
         elif self._camera.capture.isOpened() is False:
             self._camera.capture.open(self._camera.init_command, cv2.CAP_GSTREAMER)
         else:
